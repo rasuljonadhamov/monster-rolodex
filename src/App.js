@@ -6,7 +6,8 @@ class App extends Component {
     super();
 
     this.state = {
-      name: "Rasuljon",
+      name: { firsName: "Rasuljon", lastName: "Adhamov" },
+      company: "ZTM",
     };
   }
 
@@ -14,11 +15,20 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          
           <p>
-            Hi {this.state.name}
+            Hi {this.state.name.lastName} {this.state.name.firsName}, I work at{" "}
+            {this.state.company}
           </p>
-          <button>Change Name</button>
+          <button
+            onClick={() => {
+              this.setState({
+                name: { firsName: "Ro'zimuhammad", lastName: "Adhamov" },
+                company: "WhiteLine",
+              });
+            }}
+          >
+            Change Name
+          </button>
         </header>
       </div>
     );
